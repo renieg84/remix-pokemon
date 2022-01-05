@@ -1,4 +1,4 @@
-import { HiMail, HiSearch } from 'react-icons/hi';
+import { HiSearch } from 'react-icons/hi';
 export default function SearchBar() {
   return (
     <div className="flex flex-col items-center flex-1 max-w-xl mx-auto space-y-4">
