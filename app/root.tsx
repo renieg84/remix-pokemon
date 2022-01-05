@@ -72,22 +72,21 @@ function Document({
 
 function Layout({ children }: React.PropsWithChildren<{}>) {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="sticky top-0 bg-white sm:px-10 p-5 border-b">
-        <Link to="/" title="Remix" className="remix-app__header-home-link">
-          <RemixLogo />
+    <div className="flex flex-col min-h-screen lg:max-w-7xl mx-auto">
+      <header className="px-5 pt-5 mx-auto bg-transparent sm:px-10">
+        <Link to="/" title="Home">
+          <div className="h-auto w-52">
+            <img src="/images/logo.svg" alt="Pokemon logo" />
+          </div>
         </Link>
       </header>
-      <main className="flex-grow">{children}</main>
-      <footer className="sm:px-10 p-5">
-        Wanna know more about Remix? Check out{' '}
-        <a
-          className="underline"
-          href="https://remix.guide"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Remix Guide
+      <main className="flex-grow ">
+        <div className="w-full p-4 mx-auto lg:p-8">{children}</div>
+      </main>
+      <footer className="flex items-center p-3 ml-auto space-x-2 sm:px-10">
+        <span>Powered by</span>
+        <a href="https://remix.guide" target="_blank" rel="noopener noreferrer">
+          <RemixLogo />
         </a>
       </footer>
     </div>
@@ -157,7 +156,7 @@ function RemixLogo(props: React.ComponentPropsWithoutRef<'svg'>) {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       aria-labelledby="remix-run-logo-title"
       role="img"
-      width="106"
+      width="50"
       height="30"
       fill="currentColor"
       {...props}

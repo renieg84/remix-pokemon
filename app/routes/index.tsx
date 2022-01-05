@@ -1,5 +1,7 @@
 import type { MetaFunction, LinksFunction, LoaderFunction } from 'remix';
 import { useLoaderData } from 'remix';
+import PokemonListItem from '~/components/PokemonListItem';
+import SearchBar from '~/components/SearchBar';
 
 export let meta: MetaFunction = () => {
   return {
@@ -13,51 +15,31 @@ export let links: LinksFunction = () => {
 };
 
 export let loader: LoaderFunction = async ({ request }) => {
-  return {
-    title: 'remix-worker-template',
-  };
+  let res = await fetch('https://pokeapi.co/api/v2/pokemon');
+  return res.json();
 };
 
 export default function Index() {
-  let { title } = useLoaderData();
+  let data = useLoaderData();
 
   return (
-    <div>
-      <div className="sm:px-10 p-5">
-        <h2 className="mt-6 text-xl">{title}</h2>
-        <p className="py-2">
-          All-in-one remix starter template for Cloudflare Workers
-        </p>
-
-        <a
-          className="inline-block border hover:border-black px-4 py-2 mt-2"
-          href="https://github.com/edmundhung/remix-worker-template"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Github Repository
-        </a>
+    <div className="w-full">
+      <div className="mb-4">
+        <SearchBar />
       </div>
-      <section className="mt-10">
-        <h3 className="sticky top-20 border-b bg-white px-5 sm:px-10 py-2 font-bold">
-          Why should I try running Remix on Cloudflare Workers?
-        </h3>
-        <div className="px-5 sm:px-10">
-          <div className="p-4 my-4 border">
-            🚀 Blazing fast react app rendered on the edge
-          </div>
-
-          <div className="p-4 my-4 border">
-            🗺️ Showing localized content based on your user Geolocation
-          </div>
-
-          <div className="p-4 my-4 border">
-            ⚡ Customizing the CDN Cache within the worker for best performance
-          </div>
-
-          <div className="p-4 my-4 border">
-            📡 Serving your data with a low-latency key-value store
-          </div>
+      <section className="container mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {data.results.map((pokemon: any, index: number) => (
+            <PokemonListItem key={index} pokemon={pokemon} />
+          ))}
+        </div>
+        <div className="flex justify-center">
+          <button
+            type="button"
+            className="my-8 w-full max-w-xs px-4 py-2 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Load more
+          </button>
         </div>
       </section>
     </div>
