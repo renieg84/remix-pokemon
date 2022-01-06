@@ -83,7 +83,7 @@ function Layout({ children }: React.PropsWithChildren<{}>) {
       <main className="flex-grow ">
         <div className="w-full p-4 mx-auto lg:p-8">{children}</div>
       </main>
-      <footer className="flex items-center p-3 ml-auto space-x-2 sm:px-10">
+      <footer className="flex items-center p-3 mx-auto space-x-2 sm:px-10">
         <span>Powered by</span>
         <a href="https://remix.guide" target="_blank" rel="noopener noreferrer">
           <RemixLogo />
