@@ -39,7 +39,7 @@ export default function PokemonDetail() {
           <div className="flex space-x-4 my-2">
             <div>
               Height:{' '}
-              <span className="font-semibold">{data.height / 100} m</span>
+              <span className="font-semibold">{data.height / 10} m</span>
             </div>
             <div>
               Weight :{' '}
