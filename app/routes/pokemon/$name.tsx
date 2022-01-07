@@ -22,9 +22,9 @@ export default function PokemonDetail() {
   const name = data.name.split('-').join(' ');
   let navigate = useNavigate();
   return (
-    <div className="p-4 text-amber-700 flex flex-col items-center space-y-24">
+    <div className="p-4 text-amber-700 flex flex-col items-center space-y-12 sm:space-y-24">
       <div className="grid grid-cols-2 gap-4 w-full">
-        <div className="mx-auto py-4 w-full max-w-xs flex flex-col items-center justify-center h-full col-span-1 border border-amber-500 rounded-md bg-amber-100">
+        <div className="mx-auto py-4 w-full max-w-xs flex flex-col items-center justify-center h-full col-span-2 sm:col-span-1 border border-amber-500 rounded-md bg-amber-100">
           <h1 className="text-2xl uppercase font-semibold">{name}</h1>
           <img className="h-60 w-60 p-0" src={data.image} alt={name} />
           <div className="flex items-center justify-around space-x-3 mb-2">
@@ -53,7 +53,7 @@ export default function PokemonDetail() {
             </span>
           </div>
         </div>
-        <div className="flex flex-col col-span-1 space-y-3 justify-center">
+        <div className="flex flex-col col-span-2 sm:col-span-1 space-y-3 justify-center">
           {data.stats.map((stat: any) => {
             return (
               <div className="flex flex-col">
