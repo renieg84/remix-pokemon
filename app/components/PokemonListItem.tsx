@@ -9,7 +9,7 @@ type Props = {
 function PokemonListItem({ pokemon }: Props) {
   const id = pokemon.url.split('/')[6];
   return (
-    <Link to={`/pokemon/${pokemon.name}`}>
+    <Link to={`/pokemon/${pokemon.name}/specie`}>
       <div className="h-40 hover:shadow-xl hover:ring-2 hover:ring-amber-300 shadow-md flex flex-col items-center border border-amber-300 p-2 rounded-lg bg-amber-100">
         <img
           alt={pokemon.name}
