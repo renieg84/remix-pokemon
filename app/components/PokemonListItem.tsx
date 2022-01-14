@@ -16,7 +16,7 @@ function PokemonListItem({ pokemon }: Props) {
           className="w-24 h-auto object-contain"
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
         />
-        <h2 className="mt-2 text-lg font-bold text-amber-700 capitalize">
+        <h2 className="mt-2 text-lg font-bold text-amber-700 capitalize truncate">
           {pokemon.name}
         </h2>
       </div>
